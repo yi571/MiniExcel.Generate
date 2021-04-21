@@ -1,0 +1,38 @@
+﻿{
+  "executable": "MiniExcel.Generate.Server",
+  "splashscreen": {
+    "imageFile": "/wwwroot/img/ezChecksumLoad.png"
+  },
+  "name": "MiniExcelGenerateServer",
+  "author": "Junyi",
+  "singleInstance": false,
+  "environment": "Production",
+  "build": {
+    "appId": "com.MiniExcel.Generate.Server.app",
+    "productName": "試算表生成器",
+    "copyright": "Copyright © 2021",
+    "buildVersion": "0.1.0",
+    "compression": "maximum",
+    "win": {
+      "icon": "../../../bin/Desktop/win-unpacked/resources/bin/wwwroot/img/icon2.ico"
+    },
+    "directories": {
+      "output": "../../../bin/Desktop"
+    },
+    "extraResources": [
+      {
+        "from": "./bin",
+        "to": "bin",
+        "filter": [ "**/*" ]
+      }
+    ],
+    "files": [
+      {
+        "from": "./ElectronHostHook/node_modules",
+        "to": "ElectronHostHook/node_modules",
+        "filter": [ "**/*" ]
+      },
+      "**/*"
+    ]
+  }
+}

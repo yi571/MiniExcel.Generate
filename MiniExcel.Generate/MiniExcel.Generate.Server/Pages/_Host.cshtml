@@ -31,6 +31,14 @@
         <a class="dismiss">🗙</a>
     </div>
 
+    <script>
+        if (typeof require !== "undefined") {
+            window.nodeRequire = require;
+            delete window.require;
+            delete window.exports;
+            delete window.module;
+        }
+    </script>
     <script src="_framework/blazor.server.js"></script>
     <script src="_content/BootstrapBlazor/js/bootstrap.blazor.bundle.min.js"></script>
 </body>
