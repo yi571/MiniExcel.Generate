@@ -1,0 +1,34 @@
+﻿@page "/"
+
+<ValidateForm class="form-inline" Model="@Model" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@OnInvalidSubmit">
+    <div class="row">
+        <div class="form-group col-12 col-sm-6">
+            <BootstrapInput @bind-Value="@Model.ConnectStr">
+                <Tooltip Placement="Placement.Right" Title="填入連線字串" />
+            </BootstrapInput>
+        </div>
+        <div class="form-group col-12 col-sm-6">
+            <BootstrapInput @bind-Value="@Model.FileName">
+                <Tooltip Placement="Placement.Bottom" Title="填入檔案名稱" />
+            </BootstrapInput>
+        </div>
+        <div class="form-group col-12 col-sm-6">
+            <Select @bind-Value="@Model.FileType">
+                <Tooltip Placement="Placement.Right" Title="選擇副檔名" />
+            </Select>
+        </div>
+
+        <div class="form-group col-12">
+            <Textarea placeholder="請輸入..." rows="4" @bind-Value="@Model.SqlCommand">
+                <Tooltip Placement="Placement.Bottom" Title="輸入SQL SELECT 語法" />
+            </Textarea>
+            @*<BootstrapInput @bind-Value="@Model.SqlCommand" />*@
+        </div>
+        <div class="form-group col-12">
+            <Button ButtonType="@ButtonType.Submit" Icon="fa fa-fw fa-save" IsAsync="true" Text="生成試算表">
+                <Tooltip Placement="Placement.Right" Title="點擊生成試算表" />
+            </Button>
+        </div>
+    </div>
+    
+</ValidateForm>
