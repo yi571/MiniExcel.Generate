@@ -37,9 +37,9 @@ namespace MiniExcel.Generate.Shared.Shared {
             {
                 //new MenuItem() { Text = "返回组件库", Icon = "fa fa-fw fa-home", Url = "https://www.blazor.zone/components" },
                 new MenuItem() { Text = "生成試算表", Icon = "fa fa-table", Url = "" },
-                new MenuItem() { Text = "Counter", Icon = "fa fa-fw fa-check-square-o", Url = "counter" },
-                new MenuItem() { Text = "FetchData", Icon = "fa fa-fw fa-database", Url = "fetchdata" },
-                new MenuItem() { Text = "Table", Icon = "fa fa-fw fa-table", Url = "table" }
+                new MenuItem() { Text = "試算表轉json", Icon = "fa fa-repeat", IsDisabled = true },
+                //new MenuItem() { Text = "FetchData", Icon = "fa fa-fw fa-database", Url = "fetchdata" },
+                //new MenuItem() { Text = "Table", Icon = "fa fa-fw fa-table", Url = "table" }
             };
 
             return menus;

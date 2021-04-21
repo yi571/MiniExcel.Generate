@@ -1,4 +1,6 @@
 ﻿using Dapper;
+using ElectronNET.API;
+using ElectronNET.API.Entities;
 using Microsoft.AspNetCore.Components.Forms;
 using MiniExcel.Generate.Shared.Models;
 using MiniExcelLibs;
@@ -15,13 +17,23 @@ namespace MiniExcel.Generate.Shared.Pages
     public sealed partial class Index
     {
         private InputData Model { get; set; } = new() {
-            ConnectStr = @"Data Source=.;Initial Catalog=YTest;Connection Timeout=300000;Integrated Security=true;"
-            , SqlCommand = "select * from Person"
+            ConnectStr = ""
+            , SqlCommand = ""
             , FileType = FileType.Excel };
 
 
         private async Task OnValidSubmit(EditContext context)
         {
+            var mainWindow = Electron.WindowManager.BrowserWindows.First();
+            var options = new OpenDialogOptions
+            {
+                Properties = new OpenDialogProperty[] {
+                 OpenDialogProperty.openDirectory,
+                }
+            };
+
+            string[] dirs = await Electron.Dialog.ShowOpenDialogAsync(mainWindow, options);
+
             using (var connection = new SqlConnection(Model.ConnectStr))
             {
                 var rows = connection.Query(Model.SqlCommand);
@@ -38,12 +50,19 @@ namespace MiniExcel.Generate.Shared.Pages
                     default:
                         break;
                 }
-                string path = $@"D:\Tmp\{Model.FileName}{fuDangMing}";
+                string path = $"{dirs[0]}\\{Model.FileName}{fuDangMing}";
                 if (File.Exists(path))
                 {
                     File.Delete(path);
                 }
                 MiniExcelLibs.MiniExcel.SaveAs(path, rows);
+
+                var NotifyOptions = new NotificationOptions("您提出的作業已完成 😀", $"請點擊氣球查看檔案。")
+                {
+                    OnClick = async () => await Electron.Shell.ShowItemInFolderAsync(path)
+                };
+
+                Electron.Notification.Show(NotifyOptions);
             }
         }
 
