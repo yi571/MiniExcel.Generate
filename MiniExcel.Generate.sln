@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniExcel.Generate.Server", "MiniExcel.Generate\MiniExcel.Generate.Server\MiniExcel.Generate.Server.csproj", "{5DE6AEED-6180-4695-8AD5-AC5B06C53414}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniExcel.Generate.WebAssembly", "MiniExcel.Generate\MiniExcel.Generate.WebAssembly\MiniExcel.Generate.WebAssembly.csproj", "{F1B13644-49AA-45A9-AC1E-08A192DCCC85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniExcel.Generate.Shared", "MiniExcel.Generate\MiniExcel.Generate.Shared\MiniExcel.Generate.Shared.csproj", "{674F3688-9997-4E19-BEAF-3B9512452866}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DE6AEED-6180-4695-8AD5-AC5B06C53414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE6AEED-6180-4695-8AD5-AC5B06C53414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE6AEED-6180-4695-8AD5-AC5B06C53414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE6AEED-6180-4695-8AD5-AC5B06C53414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1B13644-49AA-45A9-AC1E-08A192DCCC85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1B13644-49AA-45A9-AC1E-08A192DCCC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1B13644-49AA-45A9-AC1E-08A192DCCC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1B13644-49AA-45A9-AC1E-08A192DCCC85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{674F3688-9997-4E19-BEAF-3B9512452866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{674F3688-9997-4E19-BEAF-3B9512452866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{674F3688-9997-4E19-BEAF-3B9512452866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{674F3688-9997-4E19-BEAF-3B9512452866}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD72F52C-300D-452F-BB4D-D5E3B7E9CB9F}
+	EndGlobalSection
+EndGlobal
