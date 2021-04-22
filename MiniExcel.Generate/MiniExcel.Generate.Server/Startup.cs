@@ -26,7 +26,21 @@ namespace MiniExcel.Generate.Server {
             services.AddServerSideBlazor();
 
             services.AddBootstrapBlazor(setupAction: options => {
+                options.ResourceManagerStringLocalizerType = typeof(Program);
                 options.AdditionalJsonAssemblies = new[] { GetType().Assembly };
+                options.AdditionalJsonFiles = new string[]
+                {
+                    @"./Locales/zh-TW.json",
+                    @"./zh-CN.json" 
+                };
+            });
+
+            services.AddRequestLocalization<IOptions<BootstrapBlazorOptions>>((localizerOption, blazorOption) =>
+            {
+                var supportedCultures = blazorOption.Value.GetSupportedCultures();
+
+                localizerOption.SupportedCultures = supportedCultures;
+                localizerOption.SupportedUICultures = supportedCultures;
             });
 
             services.AddRequestLocalization<IOptions<BootstrapBlazorOptions>>((localizerOption, blazorOption) => {
@@ -57,6 +71,8 @@ namespace MiniExcel.Generate.Server {
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseRequestLocalization(app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>()!.Value);
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapBlazorHub();

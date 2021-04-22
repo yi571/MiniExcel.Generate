@@ -3,6 +3,12 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="Locales\zh-TW.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Locales\zh-TW.json" />
+  </ItemGroup>
+  <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
   <ItemGroup>

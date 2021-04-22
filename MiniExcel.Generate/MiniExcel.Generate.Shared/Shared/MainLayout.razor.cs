@@ -1,11 +1,20 @@
 ﻿using BootstrapBlazor.Components;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MiniExcel.Generate.Shared.Shared {
     /// <summary>
     /// 
     /// </summary>
     public sealed partial class MainLayout {
+        [Inject]
+        protected IJSRuntime js { get; set; }
+
+        [Inject]
+        protected NavigationManager NavigationManager { get; set; }
+
         private bool UseTabSet { get; set; } = true;
 
         private string Theme { get; set; } = "";
@@ -18,7 +27,7 @@ namespace MiniExcel.Generate.Shared.Shared {
 
         private bool IsFullSide { get; set; } = true;
 
-        private bool ShowFooter { get; set; } = true;
+        private bool ShowFooter { get; set; } = false;
 
         private List<MenuItem> Menus { get; set; }
 
@@ -37,12 +46,20 @@ namespace MiniExcel.Generate.Shared.Shared {
             {
                 //new MenuItem() { Text = "返回组件库", Icon = "fa fa-fw fa-home", Url = "https://www.blazor.zone/components" },
                 new MenuItem() { Text = "生成試算表", Icon = "fa fa-table", Url = "" },
-                new MenuItem() { Text = "試算表轉json", Icon = "fa fa-repeat", IsDisabled = true },
-                //new MenuItem() { Text = "FetchData", Icon = "fa fa-fw fa-database", Url = "fetchdata" },
-                //new MenuItem() { Text = "Table", Icon = "fa fa-fw fa-table", Url = "table" }
+                new MenuItem() { Text = "試算表轉json", Icon = "fab fa-node-js", IsDisabled = true },
+                new MenuItem() { Text = "Csv轉Excel", Icon = "far fa-file-excel", Url = "", IsDisabled = true },
+                new MenuItem() { Text = "Excel轉Csv", Icon = "fas fa-file-csv", Url = "", IsDisabled = true }
             };
 
             return menus;
+        }
+
+        protected async System.Threading.Tasks.Task ShowGuidelineAsync()
+        {
+            object[] obj = new object[] {
+                true, NavigationManager.ToBaseRelativePath(NavigationManager.Uri)
+            };
+            await js.InvokeVoidAsync("Guide", obj);
         }
     }
 }
