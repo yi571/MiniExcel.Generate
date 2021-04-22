@@ -46,7 +46,7 @@ namespace MiniExcel.Generate.Shared.Shared {
             {
                 //new MenuItem() { Text = "返回组件库", Icon = "fa fa-fw fa-home", Url = "https://www.blazor.zone/components" },
                 new MenuItem() { Text = "生成試算表", Icon = "fa fa-table", Url = "" },
-                new MenuItem() { Text = "試算表轉json", Icon = "fab fa-node-js", IsDisabled = true },
+                new MenuItem() { Text = "Excel轉json", Icon = "fab fa-node-js", Url ="exceltojson" },
                 new MenuItem() { Text = "Csv轉Excel", Icon = "far fa-file-excel", Url = "", IsDisabled = true },
                 new MenuItem() { Text = "Excel轉Csv", Icon = "fas fa-file-csv", Url = "", IsDisabled = true }
             };

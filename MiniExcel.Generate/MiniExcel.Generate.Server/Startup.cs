@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using MiniExcel.Generate.Shared.Data;
+using MiniExcel.Generate.Shared.Services;
 using System.Linq;
 using MenuItem = ElectronNET.API.Entities.MenuItem;
 
@@ -54,6 +55,8 @@ namespace MiniExcel.Generate.Server {
 
             // 增加 Table 数据服务操作类
             services.AddTableDemoDataService();
+
+            services.AddSingleton<IExcelOperate, ExcelOperate>();
 
         }
 

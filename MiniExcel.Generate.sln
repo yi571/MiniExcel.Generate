@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniExcel.Generate.Server", "MiniExcel.Generate\MiniExcel.Generate.Server\MiniExcel.Generate.Server.csproj", "{5DE6AEED-6180-4695-8AD5-AC5B06C53414}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniExcel.Generate.Server", "MiniExcel.Generate\MiniExcel.Generate.Server\MiniExcel.Generate.Server.csproj", "{5DE6AEED-6180-4695-8AD5-AC5B06C53414}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniExcel.Generate.Shared", "MiniExcel.Generate\MiniExcel.Generate.Shared\MiniExcel.Generate.Shared.csproj", "{674F3688-9997-4E19-BEAF-3B9512452866}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniExcel.Generate.Shared", "MiniExcel.Generate\MiniExcel.Generate.Shared\MiniExcel.Generate.Shared.csproj", "{674F3688-9997-4E19-BEAF-3B9512452866}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
