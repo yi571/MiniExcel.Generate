@@ -11,7 +11,7 @@
     "appId": "com.MiniExcel.Generate.Server.app",
     "productName": "試算表生成器",
     "copyright": "Copyright © 2021",
-    "buildVersion": "0.1.0",
+    "buildVersion": "0.3.0",
     "compression": "maximum",
     "win": {
       "icon": "../../../bin/Desktop/win-unpacked/resources/bin/wwwroot/img/icon2.ico"

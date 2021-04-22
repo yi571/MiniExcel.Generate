@@ -34,36 +34,40 @@ namespace MiniExcel.Generate.Shared.Pages
 
             string[] dirs = await Electron.Dialog.ShowOpenDialogAsync(mainWindow, options);
 
-            using (var connection = new SqlConnection(Model.ConnectStr))
+            if (dirs.Length > 0)
             {
-                var rows = connection.Query(Model.SqlCommand);
-                //iniExcelLibs.MiniExcel.SaveAs(path, rows);
-                string fuDangMing = "";
-                switch (Model.FileType)
+                using (var connection = new SqlConnection(Model.ConnectStr))
                 {
-                    case FileType.Excel:
-                        fuDangMing = ".xlsx";
-                        break;
-                    case FileType.Csv:
-                        fuDangMing = ".csv";
-                        break;
-                    default:
-                        break;
-                }
-                string path = $"{dirs[0]}\\{Model.FileName}{fuDangMing}";
-                if (File.Exists(path))
-                {
-                    File.Delete(path);
-                }
-                MiniExcelLibs.MiniExcel.SaveAs(path, rows);
+                    var rows = connection.Query(Model.SqlCommand);
+                    //iniExcelLibs.MiniExcel.SaveAs(path, rows);
+                    string fuDangMing = "";
+                    switch (Model.FileType)
+                    {
+                        case FileType.Excel:
+                            fuDangMing = ".xlsx";
+                            break;
+                        case FileType.Csv:
+                            fuDangMing = ".csv";
+                            break;
+                        default:
+                            break;
+                    }
+                    string path = $"{dirs[0]}\\{Model.FileName}{fuDangMing}";
+                    if (File.Exists(path))
+                    {
+                        File.Delete(path);
+                    }
+                    MiniExcelLibs.MiniExcel.SaveAs(path, rows);
 
-                var NotifyOptions = new NotificationOptions("您提出的作業已完成 😀", $"請點擊氣球查看檔案。")
-                {
-                    OnClick = async () => await Electron.Shell.ShowItemInFolderAsync(path)
-                };
+                    var NotifyOptions = new NotificationOptions("您提出的作業已完成 😀", $"請點擊氣球查看檔案。")
+                    {
+                        OnClick = async () => await Electron.Shell.ShowItemInFolderAsync(path)
+                    };
 
-                Electron.Notification.Show(NotifyOptions);
+                    Electron.Notification.Show(NotifyOptions);
+                }
             }
+            
         }
 
         private Task OnInvalidSubmit(EditContext context)
