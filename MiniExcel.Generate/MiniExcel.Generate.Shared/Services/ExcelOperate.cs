@@ -48,6 +48,37 @@ namespace MiniExcel.Generate.Shared.Services
             return true;
         }
 
+        public bool CsvToJson(string path, string savePath, bool isTitle)
+        {
+            var rows = MiniExcelLibs.MiniExcel.Query(path, useHeaderRow: isTitle);
+            var jsonStr = JsonConvert.SerializeObject(rows);
+            string fileName = Path.GetFileNameWithoutExtension(path);
+
+            if (!string.IsNullOrEmpty(savePath))
+            {
+                try
+                {
+                    using StreamWriter sw = new StreamWriter($"{savePath}/{fileName}.json");
+                    sw.Write(jsonStr);
+                    sw.Close();
+                    
+                }
+                catch (Exception ex)
+                {
+                    Electron.Dialog.ShowErrorBox("發生錯誤", ex.Message);
+                    return false;
+                }
+
+            }
+            else
+            {
+                Electron.Dialog.ShowErrorBox("發生錯誤", "路徑為空值！");
+                return false;
+            }
+
+            return true;
+        }
+
         public List<dynamic> ExcelTableToObject(string path)
         {
             throw new NotImplementedException();

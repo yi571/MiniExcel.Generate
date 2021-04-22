@@ -26,13 +26,25 @@
             break;
         case "exceltojson":
             afet.ShowNoviceGuide('readFlagName', isRun, {
-                '.switch-core': {
+                '[name=gExcelToJsonSwitch] .switch-core': {
                     offsetLeft: 160, offsetTop: 25,
                     text: '是：表示第一列是欄位名稱，會以第一列為Key。\n否：則會以A、B、C...為Key。'
                 },
                 '[name=gExceltojsonSubmit]': {
                     offsetLeft: 160, offsetTop: 25,
-                    text: '按下按鍵後，先選擇要轉換的xlsx檔，再選擇儲存資料夾。\n程式會將所有sheet轉成json，並以sheet名稱作為檔名。\n(預設第一列是欄位名稱)'
+                    text: '按下按鍵後，先選擇要轉換的xlsx檔，再選擇儲存資料夾。\n程式會將所有sheet轉成json，並以sheet名稱作為檔名。'
+                }
+            });
+            break;
+        case "csvtojson":
+            afet.ShowNoviceGuide('readFlagName', isRun, {
+                '[name=gCsvToJsonSwtich] .switch-core': {
+                    offsetLeft: 160, offsetTop: 25,
+                    text: '是：表示第一列是欄位名稱，會以第一列為Key。\n否：則會以A、B、C...為Key。'
+                },
+                '[name=gCsvToJsonSubmit]': {
+                    offsetLeft: 160, offsetTop: 25,
+                    text: '按下按鍵後，先選擇要轉換的csv檔，再選擇儲存資料夾。\n程式會以csv檔案名稱作為檔名。'
                 }
             });
             break;
