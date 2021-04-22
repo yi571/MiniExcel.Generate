@@ -13,5 +13,7 @@ namespace MiniExcel.Generate.Shared.Services
         List<dynamic> ExcelTableToObject(string path);
 
         bool AllSheetToJsons(string path, string savePath , bool isTitle);
+
+        bool CsvToJson(string path, string savePath, bool isTitle);
     }
 }

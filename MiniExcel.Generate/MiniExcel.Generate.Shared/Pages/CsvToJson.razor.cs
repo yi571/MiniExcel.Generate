@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MiniExcel.Generate.Shared.Pages
 {
-    public sealed partial class ExcelToJson
+    public sealed partial class CsvToJson
     {
         [Inject]
         IExcelOperate excelOperate { get; set; }
@@ -22,8 +22,7 @@ namespace MiniExcel.Generate.Shared.Pages
             IsTitle = val;
         }
 
-        protected async Task SelectFile()
-        {
+        protected async Task SelectFile() {
             var mainWindow = Electron.WindowManager.BrowserWindows.First();
             var options = new OpenDialogOptions
             {
@@ -32,8 +31,8 @@ namespace MiniExcel.Generate.Shared.Pages
                     },
                 Filters = new FileFilter[] {
                         new FileFilter {
-                            Extensions = new string[] { "xlsx" },
-                            Name = "xlsx"
+                            Extensions = new string[] { "csv" },
+                            Name = "csv"
                         }
                     }
             };
@@ -52,7 +51,7 @@ namespace MiniExcel.Generate.Shared.Pages
 
                 if (result.Length > 0)
                 {
-                    var isSucess = excelOperate.AllSheetToJsons(files[0], result[0], IsTitle);
+                    var isSucess = excelOperate.CsvToJson(files[0], result[0], IsTitle);
 
 
 
