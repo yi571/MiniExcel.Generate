@@ -1,0 +1,7 @@
+﻿{
+  "BootstrapBlazor.Components.Tab": {
+    "CloseCurrentTabText": "關閉目前標籤",
+    "CloseOtherTabsText": "關閉其他標籤",
+    "CloseAllTabsText": "關閉所有標籤"
+  }
+}
