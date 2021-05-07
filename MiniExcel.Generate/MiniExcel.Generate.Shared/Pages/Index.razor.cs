@@ -38,7 +38,7 @@ namespace MiniExcel.Generate.Shared.Pages
             {
                 using (var connection = new SqlConnection(Model.ConnectStr))
                 {
-                    var rows = connection.Query(Model.SqlCommand);
+                    var rows = connection.Query(Model.SqlCommand, buffered:false);
                     //iniExcelLibs.MiniExcel.SaveAs(path, rows);
                     string fuDangMing = "";
                     switch (Model.FileType)
